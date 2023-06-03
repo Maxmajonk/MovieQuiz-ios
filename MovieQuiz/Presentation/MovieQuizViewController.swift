@@ -20,7 +20,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         super.viewDidLoad()
         alertPresenter = AlertPresenterImpl(viewContoller: self)
         imageView.accessibilityIdentifier = "Poster"
-                yesButton.accessibilityIdentifier = "Yes"
+        yesButton.accessibilityIdentifier = "Yes"
         counterLabel.accessibilityIdentifier = "Index"
         noButton.accessibilityIdentifier = "No"
         textLabel.accessibilityIdentifier = "Game results"
@@ -40,11 +40,11 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     //MARK: - Actions
     
     @IBAction private func YesButton(_ sender: UIButton) {
-        presenter.yesButtonClicked()
+        presenter.answerButtonClicked(isYes: true)
     }
     
     @IBAction private func NoButton(_ sender: UIButton) {
-        presenter.noButtonClicked()
+        presenter.answerButtonClicked(isYes: false)
     }
     // MARK: - QuestionFactoryDelegate
     
@@ -121,10 +121,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     }
     
     func handleFinalResults() {
-        presenter.correctAnswers = 0
         presenter.resetQuestionIndex()
         presenter.proceedToNextQuestionOrResults()
     }
 }
-
-

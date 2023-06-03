@@ -7,7 +7,7 @@
 
 import XCTest
 
-class MovieQuizUITests: XCTestCase {
+final class MovieQuizUITests: XCTestCase {
     // swiftlint:disable:next implicitly_unwrapped_optional
     var app: XCUIApplication!
     
@@ -72,8 +72,6 @@ class MovieQuizUITests: XCTestCase {
         }
         
         let alert = app.alerts["Игра окончена"]
-        let playAgainButton = alert.buttons["ОК"]
-        
         
         XCTAssertTrue(alert.exists)
         XCTAssertTrue(alert.label == "Игра окончена")

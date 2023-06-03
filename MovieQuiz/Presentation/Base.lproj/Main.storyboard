@@ -140,8 +140,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="NoButton" destination="n54-sJ-Fb2" id="34n-Co-0lX"/>
-                        <outlet property="YesButton" destination="cPD-3V-OUk" id="lKS-5Z-fnd"/>
                         <outlet property="activityIndicator" destination="Wx1-lZ-K2F" id="Vr3-DJ-HhS"/>
                         <outlet property="counterLabel" destination="1au-R5-P4y" id="9ky-c4-Tp1"/>
                         <outlet property="imageView" destination="cbE-G5-OwO" id="dnH-47-fug"/>

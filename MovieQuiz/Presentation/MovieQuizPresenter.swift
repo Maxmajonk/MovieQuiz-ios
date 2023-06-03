@@ -12,22 +12,23 @@ final class MovieQuizPresenter: QuestionFactoryDelegate  {
     private var currentQuestionIndex: Int = 0
     var correctAnswers: Int = 0
     private var statisticService: StatisticService?
+    
     var questionFactory: QuestionFactory?
     private var currentQuestion: QuizQuestion?
     weak var viewController: MovieQuizViewController?
     
-    init() { questionFactory = QuestionFactory(moviesLoader: MoviesLoader(), delegate: self)
+    init() {
+        questionFactory = QuestionFactory(moviesLoader: MoviesLoader(), delegate: self)
         statisticService = StatisticServiceImpl()
         questionFactory?.loadData()
     }
     
-    func isLastQuestion() -> Bool {
-        currentQuestionIndex == questionsCount - 1
+    var isLastQuestion: Bool {
+        return currentQuestionIndex == questionsCount - 1
     }
     
     func resetQuestionIndex() {
-        currentQuestionIndex = -2
-        switchToNextQuestion()
+        currentQuestionIndex = -1
     }
     
     func switchToNextQuestion() {
@@ -43,21 +44,19 @@ final class MovieQuizPresenter: QuestionFactoryDelegate  {
         )
     }
     
-    func yesButtonClicked() {
-        didAnswer(isYes: true)
-    }
-    
-    func noButtonClicked() {
-        didAnswer(isYes: false)
+    func answerButtonClicked(isYes: Bool) {
+        didAnswer(isYes: isYes)
     }
     
     private func didAnswer(isYes: Bool) {
         guard let currentQuestion = currentQuestion else {
             return
         }
-        let givenAnswer = isYes
         
-        viewController?.proceedToNextQuestionOrResults(isCorrect: givenAnswer == currentQuestion.correctAnswer)
+        let givenAnswer = isYes
+        let isCorrect = givenAnswer == currentQuestion.correctAnswer
+        
+        viewController?.proceedToNextQuestionOrResults(isCorrect: isCorrect)
     }
     
     func didReceiveQuestion(_ question: QuizQuestion) {
@@ -66,14 +65,17 @@ final class MovieQuizPresenter: QuestionFactoryDelegate  {
         self.viewController?.show(quiz: viewModel)
     }
     
-    func proceedToNextQuestionOrResults () {
-        self.viewController?.toggleButtonsInteraction(true)
-        if self.isLastQuestion() {
+    func proceedToNextQuestionOrResults() {
+        viewController?.toggleButtonsInteraction(true)
+        
+        if isLastQuestion {
             showFinalResults()
-            self.viewController?.showFinalResults()
+            viewController?.showFinalResults()
         } else {
-            switchToNextQuestion()
-            self.questionFactory?.requestNextQuestion()
+            if let questionFactory = questionFactory {
+                switchToNextQuestion()
+                questionFactory.requestNextQuestion()
+            }
         }
     }
     
