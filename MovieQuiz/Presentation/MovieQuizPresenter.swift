@@ -8,14 +8,13 @@
 import UIKit
 
 final class MovieQuizPresenter: QuestionFactoryDelegate  {
+    var correctAnswers: Int = 0
+    var questionFactory: QuestionFactory?
+    weak var viewController: MovieQuizViewController?
     private let questionsCount: Int = 10
     private var currentQuestionIndex: Int = 0
-    var correctAnswers: Int = 0
     private var statisticService: StatisticService?
-    
-    var questionFactory: QuestionFactory?
     private var currentQuestion: QuizQuestion?
-    weak var viewController: MovieQuizViewController?
     
     init() {
         questionFactory = QuestionFactory(moviesLoader: MoviesLoader(), delegate: self)
@@ -48,7 +47,7 @@ final class MovieQuizPresenter: QuestionFactoryDelegate  {
         didAnswer(isYes: isYes)
     }
     
-    private func didAnswer(isYes: Bool) {
+    func didAnswer(isYes: Bool) {
         guard let currentQuestion = currentQuestion else {
             return
         }

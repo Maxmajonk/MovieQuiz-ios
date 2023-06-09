@@ -79,7 +79,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xig-nd-KwJ">
                                         <rect key="frame" x="0.0" y="679" width="353" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n54-sJ-Fb2" userLabel="NoButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n54-sJ-Fb2" userLabel="noButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="60"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="No"/>
@@ -98,10 +98,10 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="NoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rn7-pc-BFU"/>
+                                                    <action selector="noButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NNo-ow-gm8"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPD-3V-OUk" userLabel="YesButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPD-3V-OUk" userLabel="yesButton">
                                                 <rect key="frame" x="186.66666666666663" y="0.0" width="166.33333333333337" height="60"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="Yes"/>
@@ -117,7 +117,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="YesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hWj-pN-szZ"/>
+                                                    <action selector="yesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vKm-Pw-zLe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -143,9 +143,9 @@
                         <outlet property="activityIndicator" destination="Wx1-lZ-K2F" id="Vr3-DJ-HhS"/>
                         <outlet property="counterLabel" destination="1au-R5-P4y" id="9ky-c4-Tp1"/>
                         <outlet property="imageView" destination="cbE-G5-OwO" id="dnH-47-fug"/>
-                        <outlet property="noButton" destination="n54-sJ-Fb2" id="OlA-zm-zJS"/>
+                        <outlet property="noButton" destination="n54-sJ-Fb2" id="87T-r2-7N8"/>
                         <outlet property="textLabel" destination="Cv9-hO-CKg" id="zFC-jr-ud4"/>
-                        <outlet property="yesButton" destination="cPD-3V-OUk" id="Q1N-Yu-iSE"/>
+                        <outlet property="yesButton" destination="cPD-3V-OUk" id="yMq-yb-xZL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

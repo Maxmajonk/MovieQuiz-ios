@@ -9,8 +9,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     @IBOutlet weak var noButton: UIButton!
     @IBOutlet weak var yesButton: UIButton!
     
-    private var presenter = MovieQuizPresenter()
-    
+    private var presenter: QuestionFactoryDelegate = MovieQuizPresenter()
     private var currentQuestion: QuizQuestion?
     private var alertPresenter: AlertPresenter?
     
@@ -26,11 +25,10 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         textLabel.accessibilityIdentifier = "Game results"
         
         imageView.layer.cornerRadius = 20
-        presenter.viewController = self
-        
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         activityIndicator.hidesWhenStopped = true
+        presenter.viewController = self
     }
     //MARK: - Prefer White
     
@@ -39,11 +37,11 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     }
     //MARK: - Actions
     
-    @IBAction private func YesButton(_ sender: UIButton) {
+    @IBAction private func yesButton(_ sender: UIButton) {
         presenter.answerButtonClicked(isYes: true)
     }
     
-    @IBAction private func NoButton(_ sender: UIButton) {
+    @IBAction private func noButton(_ sender: UIButton) {
         presenter.answerButtonClicked(isYes: false)
     }
     // MARK: - QuestionFactoryDelegate
