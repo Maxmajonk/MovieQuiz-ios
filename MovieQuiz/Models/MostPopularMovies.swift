@@ -23,7 +23,6 @@ struct MostPopularMovie: Codable {
         case imageURL = "image"
     }
     
-    
     var resizedImageURL: URL {
         // создаем строку из адреса
         let urlString = imageURL.absoluteString
@@ -38,4 +37,3 @@ struct MostPopularMovie: Codable {
         return newURL
     }
 }
-

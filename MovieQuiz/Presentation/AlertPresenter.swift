@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol AlertPresenter {
     
     func show(alertModel: AlertModel)
