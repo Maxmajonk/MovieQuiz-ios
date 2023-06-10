@@ -39,7 +39,6 @@ final class StatisticServiceImpl {
 }
 
 extension StatisticServiceImpl: StatisticService {
-    
     var gamesCount: Int {
         get {
             userDefaults.integer(forKey: Keys.gamesCount.rawValue)
@@ -85,7 +84,6 @@ extension StatisticServiceImpl: StatisticService {
     var totalAccuracy: Double {
         Double(correct) / Double(total) * 100
     }
-    
     // MARK: - Functions
     
     func store (correct: Int, total: Int) {
