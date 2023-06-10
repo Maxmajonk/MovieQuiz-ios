@@ -19,7 +19,6 @@ final class ArraeTests: XCTestCase {
         //Then
         XCTAssertNotNil(value)
         XCTAssertEqual(value, 3)
-        
     }
     
     func testGetOutOfRage() throws { // тест на взятие элемента по неправильному индексу
@@ -31,6 +30,5 @@ final class ArraeTests: XCTestCase {
         
         //Then
         XCTAssertNil(value)
-        
     }
 }

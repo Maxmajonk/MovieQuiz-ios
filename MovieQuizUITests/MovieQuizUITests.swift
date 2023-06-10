@@ -21,6 +21,7 @@ final class MovieQuizUITests: XCTestCase {
         // то следующие тесты запускаться не будут; и правда, зачем ждать?
         continueAfterFailure = false
     }
+    
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         
